@@ -16,6 +16,8 @@ const prevBtn = document.querySelector("#prev-btn");
 const inputGroup = document.querySelector("#input-group");
 const inputField = document.querySelector("#input-field");
 const inputLabel = document.querySelector("#input-label");
+const inputProgress = document.querySelector("#input-progress");
+const progress = document.querySelector("#progress-bar");
 
 document.addEventListener("DOMContentLoaded", getQuestion);
 nextBtn.addEventListener("click", validate);
@@ -30,6 +32,9 @@ function getQuestion() {
   inputField.type = questions[position].type || "text";
   inputField.value = questions[position].answer || "";
   inputField.focus();
+
+  //progress Bar
+  progress.style.width = (position * 100) / questions.length + "%";
 
   prevBtn.className = position ? "fas fa-arrow-left" : "fas fa-user";
 
